@@ -1,0 +1,39 @@
+{
+    "name": "wecodepixels/theia-post-slider",
+    "description": "Transform your multi-page posts into slideshows.",
+    "keywords": [
+        "wordpress",
+        "plugin",
+        "slider"
+    ],
+    "homepage": "https://wecodepixels.com",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "WeCodePixels",
+            "email": "contact@wecodepixels.com",
+            "homepage": "https://wecodepixels.com"
+        }
+    ],
+    "type": "wordpress-plugin",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@bitbucket.org:wecodepixels/wordpress-plugin.git"
+        }
+    ],
+    "require": {
+        "php": ">=5.3",
+        "ezyang/htmlpurifier": "~4.8.0",
+        "wecodepixels/wordpress-plugin": "dev-master"
+    },
+    "scripts": {
+        "post-package-install": [
+            "@rename-plugin-framework"
+        ],
+        "post-package-update": [
+            "@rename-plugin-framework"
+        ],
+        "rename-plugin-framework": "find ./vendor/wecodepixels/wordpress-plugin -type f -name '*.php' -exec sed -i 's#namespace WeCodePixels\\\\PluginFramework;#namespace WeCodePixels\\\\TheiaPostSliderFramework;#g' {} \\;"
+    }
+}

@@ -1,0 +1,287 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WP Rent Receipts\n"
+"POT-Creation-Date: 2018-08-16 12:45+0100\n"
+"PO-Revision-Date: 2018-08-16 12:46+0100\n"
+"Last-Translator: \n"
+"Language-Team: QuanticaLabs <quanticalabs@gmail.com>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.5\n"
+"X-Poedit-KeywordsList: __;_e;esc_html__;esc_html_e;esc_attr__;esc_attr_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../src/AutoLoadPosts/FormShortcode.php:74
+#: ../src/AutoLoadPosts/FormShortcode.php:89
+#: ../src/AutoLoadPosts/FormShortcode.php:94
+#: ../src/AutoLoadPosts/FormShortcode.php:104
+#: ../src/AutoLoadPosts/FormShortcode.php:114
+#: ../src/AutoLoadPosts/FormShortcode.php:119
+msgid "Please fill out this field."
+msgstr ""
+
+#: ../src/AutoLoadPosts/FormShortcode.php:79
+#: ../src/AutoLoadPosts/FormShortcode.php:109
+msgid "Phone number must have 10 digits."
+msgstr ""
+
+#: ../src/AutoLoadPosts/FormShortcode.php:84
+msgid "Please enter a number."
+msgstr ""
+
+#: ../src/AutoLoadPosts/FormShortcode.php:99
+msgid "Please enter email address."
+msgstr ""
+
+#: ../src/AutoLoadPosts/FormShortcode.php:135
+#, php-format
+msgid "Receipt could not be created. Error: %s."
+msgstr ""
+
+#: ../src/AutoLoadPosts/FormShortcode.php:149
+msgid "PDF file could not be generated."
+msgstr ""
+
+#: ../src/AutoLoadPosts/FormShortcode.php:160
+#, php-format
+msgid "There was an error. Message: %s"
+msgstr ""
+
+#: ../src/AutoLoadPosts/FormShortcode.php:175
+msgid "Rent receipt generated!"
+msgstr ""
+
+#: ../src/AutoLoadPosts/Notify.php:21
+#: ../templates/email/new-rent-receipt.php:8
+msgid "Rent Receipt"
+msgstr ""
+
+#: ../src/AutoLoadPosts/RentReceipt.php:41
+msgid "Add New Rent Receipt"
+msgstr ""
+
+#: ../src/AutoLoadPosts/RentReceipt.php:42
+msgid "Edit Rent Receipt"
+msgstr ""
+
+#: ../src/AutoLoadPosts/RentReceipt.php:43
+msgid "New Rent Receipt"
+msgstr ""
+
+#: ../src/AutoLoadPosts/RentReceipt.php:44
+msgid "All Rent Receipts"
+msgstr ""
+
+#: ../src/AutoLoadPosts/RentReceipt.php:45
+msgid "View Rent Receipt"
+msgstr ""
+
+#: ../src/AutoLoadPosts/RentReceipt.php:46
+msgid "Search Rent Receipts"
+msgstr ""
+
+#: ../src/AutoLoadPosts/RentReceipt.php:47
+msgid "No Rent Receipts found"
+msgstr ""
+
+#: ../src/AutoLoadPosts/RentReceipt.php:48
+msgid "No Rent Receipt found in Trash"
+msgstr ""
+
+#: ../src/AutoLoadPosts/RentReceipt.php:50
+msgid "Rent Receipts"
+msgstr ""
+
+#: ../src/AutoLoadPosts/RentReceipt.php:67
+msgid "Details"
+msgstr ""
+
+#: ../src/AutoLoadPosts/RentReceipt.php:90
+#, php-format
+msgid "RentReceipt%s"
+msgstr ""
+
+#: ../templates/confirmation-shortcode.php:9
+msgid "Congratulations!"
+msgstr ""
+
+#: ../templates/confirmation-shortcode.php:10
+msgid ""
+"Your rent receipts are generated succesfully and link to pdf has been sent "
+"to you on the email. You can also download the receipts by click the below "
+"button"
+msgstr ""
+
+#: ../templates/confirmation-shortcode.php:11
+#: ../templates/email/new-rent-receipt.php:19
+msgid "Download Rent Receipt"
+msgstr ""
+
+#: ../templates/confirmation-shortcode.php:15
+msgid "Error!"
+msgstr ""
+
+#: ../templates/confirmation-shortcode.php:16
+msgid ""
+"We couldn't find rent receipt for your request. Please make sure that the "
+"URL address is correct."
+msgstr ""
+
+#: ../templates/email/new-rent-receipt.php:15
+#, php-format
+msgid "Hi %s"
+msgstr ""
+
+#: ../templates/email/new-rent-receipt.php:16
+msgid ""
+"Thanks for using NoBroker for generating rent receipts for your tax saving "
+"needs. Now you know whom to look up to for a brokerage free house for rent, "
+"buy or sell."
+msgstr ""
+
+#: ../templates/email/new-rent-receipt.php:17
+msgid "Happy Tax Saving!"
+msgstr ""
+
+#: ../templates/email/new-rent-receipt.php:21
+msgid "Thanks,<br>NoBroker Team"
+msgstr ""
+
+#: ../templates/form-shortcode.php:7
+msgid "Create Rent Receipt"
+msgstr ""
+
+#: ../templates/form-shortcode.php:8
+msgid ""
+"Looking for rent receipts for tax saving? Do it in a click by filling the "
+"form below, take the print of the generated pdf and you are done. Easy"
+msgstr ""
+
+#: ../templates/form-shortcode.php:16
+msgid "Tenant Name"
+msgstr ""
+
+#: ../templates/form-shortcode.php:19
+msgid "Tenant's Name"
+msgstr ""
+
+#: ../templates/form-shortcode.php:24
+msgid "Tenant Phone"
+msgstr ""
+
+#: ../templates/form-shortcode.php:27
+msgid "to receive sms with receipts"
+msgstr ""
+
+#: ../templates/form-shortcode.php:32
+msgid "Rent"
+msgstr ""
+
+#: ../templates/form-shortcode.php:35 ../templates/form-shortcode.php:43
+msgid "Monthly Rent in Rs."
+msgstr ""
+
+#: ../templates/form-shortcode.php:40
+msgid "Rented Property Address"
+msgstr ""
+
+#: ../templates/form-shortcode.php:48
+msgid "Receipt Start Date"
+msgstr ""
+
+#: ../templates/form-shortcode.php:51 ../templates/form-shortcode.php:101
+msgid "yyyy-mm-dd"
+msgstr ""
+
+#: ../templates/form-shortcode.php:56
+msgid "Email"
+msgstr ""
+
+#: ../templates/form-shortcode.php:59
+msgid "Email to receive PDF link"
+msgstr ""
+
+#: ../templates/form-shortcode.php:66
+msgid "Owner Name"
+msgstr ""
+
+#: ../templates/form-shortcode.php:69
+msgid "Owner's Name"
+msgstr ""
+
+#: ../templates/form-shortcode.php:74
+msgid "Owner Phone"
+msgstr ""
+
+#: ../templates/form-shortcode.php:77
+msgid "Owners 10 digit phone number"
+msgstr ""
+
+#: ../templates/form-shortcode.php:82
+msgid "Owner Pan"
+msgstr ""
+
+#: ../templates/form-shortcode.php:85
+msgid "Owner's Pan"
+msgstr ""
+
+#: ../templates/form-shortcode.php:90
+msgid "Owner Address"
+msgstr ""
+
+#: ../templates/form-shortcode.php:93
+msgid "Current Adress of the owner as required in rental receipts"
+msgstr ""
+
+#: ../templates/form-shortcode.php:98
+msgid "Receipt End Date"
+msgstr ""
+
+#: ../templates/form-shortcode.php:110
+msgid "Generate Rent Receipt Now"
+msgstr ""
+
+#: ../templates/rent-receipt-details-meta-box.php:11
+msgid "Download PDF Rent Receipt"
+msgstr ""
+
+#: ../templates/rent-receipt-pdf.php:74
+msgid "House Rent Receipt"
+msgstr ""
+
+#: ../templates/rent-receipt-pdf.php:75
+#, php-format
+msgid "<b>Dated</b>: %s"
+msgstr ""
+
+#: ../templates/rent-receipt-pdf.php:76
+#, php-format
+msgid ""
+"This is to acknowledge the receipt from %s the sum of rupees  %s/- towards "
+"house rent for the month of %s, towards the property bearing the address \"%s"
+"\""
+msgstr ""
+
+#: ../templates/rent-receipt-pdf.php:77
+msgid "<b>Owner's Name and Address</b>"
+msgstr ""
+
+#: ../templates/rent-receipt-pdf.php:84
+#, php-format
+msgid "Pan: %s"
+msgstr ""
+
+#: ../templates/rent-receipt-pdf.php:87
+#, php-format
+msgid "Signature<br>(%s)"
+msgstr ""
+
+#: ../templates/rent-receipt-pdf.php:92
+#, php-format
+msgid "This is system generated from %s"
+msgstr ""
