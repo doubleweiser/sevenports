@@ -23,10 +23,12 @@
 define( 'DB_NAME', 'wp943' );
 
 /** MySQL database username */
-define( 'DB_USER', 'wp943' );
+// define( 'DB_USER', 'wp943' );
+define( 'DB_USER', 'root' );
 
 /** MySQL database password */
-define( 'DB_PASSWORD', '6-S06S4p(U' );
+// define( 'DB_PASSWORD', '6-S06S4p(U' );
+define( 'DB_PASSWORD', 'csduo2004mysql' );
 
 /** MySQL hostname */
 define( 'DB_HOST', 'localhost' );
