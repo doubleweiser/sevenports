@@ -1,9 +1,9 @@
 === One Click Demo Import ===
-Contributors: capuderg, cyman, Prelc, proteusthemes
+Contributors: smub, proteusthemes
 Tags: import, content, demo, data, widgets, settings, redux, theme options
 Requires at least: 4.0.0
-Tested up to: 4.9
-Stable tag: 2.5.0
+Tested up to: 5.2.2
+Stable tag: 2.5.2
 License: GPLv3 or later
 
 Import your demo content, widgets and theme settings with one click. Theme authors! Enable simple demo import for your theme demo data.
@@ -128,7 +128,7 @@ function ocdi_after_import_setup() {
 	$main_menu = get_term_by( 'name', 'Main Menu', 'nav_menu' );
 
 	set_theme_mod( 'nav_menu_locations', array(
-			'main-menu' => $main_menu->term_id,
+			'main-menu' => $main_menu->term_id, // replace 'main-menu' here with the menu location identifier from register_nav_menu() function
 		)
 	);
 
@@ -339,6 +339,37 @@ You can disable the branding notice with a WP filter. All you need to do is add 
 
 and the notice will not be displayed.
 
+= How can I pass Amazon S3 presigned URL's (temporary links) as external files ? =
+
+If you want to host your import content files on Amazon S3, but you want them to be publicly available, rather through an own API as presigned URL's (which expires) you can use the filter `pt-ocdi/pre_download_import_files` in which you can pass your own URL's, for example:
+
+```
+add_filter( 'pt-ocdi/pre_download_import_files', function( $import_file_info ){
+
+	// In this example `get_my_custom_urls` is supposedly making a `wp_remote_get` request, getting the urls from an API server where you're creating the presigned urls, [example here](https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/s3-presigned-url.html).
+	// This request should return an array containing all the 3 links - `import_file_url`, `import_widget_file_url`, `import_customizer_file_url`
+	$request = get_my_custom_urls( $import_file_info );
+
+	if ( !is_wp_error( $request ) )
+	{
+		if ( isset($request['data']) && is_array($request['data']) )
+		{
+			if( isset($request['data']['import_file_url']) && $import_file_url = $request['data']['import_file_url'] ){
+				$import_file_info['import_file_url'] = $import_file_url;
+			}
+			if( isset($request['data']['import_widget_file_url']) && $import_widget_file_url = $request['data']['import_widget_file_url'] ){
+				$import_file_info['import_widget_file_url'] = $import_widget_file_url;
+			}
+			if( isset($request['data']['import_customizer_file_url']) && $import_customizer_file_url = $request['data']['import_customizer_file_url'] ){
+				$import_file_info['import_customizer_file_url'] = $import_customizer_file_url;
+			}
+		}
+	}
+
+	return $import_file_info;
+
+} );
+```
 
 = I can't activate the plugin, because of a fatal error, what can I do? =
 
@@ -361,6 +392,21 @@ Please visit this [docs page](https://github.com/proteusthemes/one-click-demo-im
 3. Example of how the import page looks like, when no demo imports are predefined a.k.a manual import.
 
 == Changelog ==
+
+= 2.5.2 =
+
+*Release Date - 29 July 2019*
+
+* Improved documentation and code sample
+* Added `pt-ocdi/pre_download_import_files` filter
+* Added two action hooks to plugin-page.php
+* Bumped `Tested up to` tag
+
+= 2.5.1 =
+
+*Release Date - 25 October 2018*
+
+* Fix missing translation strings
 
 = 2.5.0 =
 

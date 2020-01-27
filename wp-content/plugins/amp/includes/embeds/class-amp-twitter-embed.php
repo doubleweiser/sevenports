@@ -43,16 +43,16 @@ class AMP_Twitter_Embed_Handler extends AMP_Base_Embed_Handler {
 	private $amp_tag = 'amp-twitter';
 
 	/**
-	 * Register embed.
+	 * Registers embed.
 	 */
 	public function register_embed() {
-		add_shortcode( 'tweet', array( $this, 'shortcode' ) ); // Note: This is a Jetpack shortcode.
-		wp_embed_register_handler( 'amp-twitter', self::URL_PATTERN, array( $this, 'oembed' ), -1 );
-		wp_embed_register_handler( 'amp-twitter-timeline', self::URL_PATTERN_TIMELINE, array( $this, 'oembed_timeline' ), -1 );
+		add_shortcode( 'tweet', [ $this, 'shortcode' ] ); // Note: This is a Jetpack shortcode.
+		wp_embed_register_handler( 'amp-twitter', self::URL_PATTERN, [ $this, 'oembed' ], -1 );
+		wp_embed_register_handler( 'amp-twitter-timeline', self::URL_PATTERN_TIMELINE, [ $this, 'oembed_timeline' ], -1 );
 	}
 
 	/**
-	 * Unregister embed.
+	 * Unregisters embed.
 	 */
 	public function unregister_embed() {
 		remove_shortcode( 'tweet' ); // Note: This is a Jetpack shortcode.
@@ -69,9 +69,12 @@ class AMP_Twitter_Embed_Handler extends AMP_Base_Embed_Handler {
 	 * @return string Twitter shortcode markup.
 	 */
 	public function shortcode( $attr ) {
-		$attr = wp_parse_args( $attr, array(
-			'tweet' => false,
-		) );
+		$attr = wp_parse_args(
+			$attr,
+			[
+				'tweet' => false,
+			]
+		);
 
 		if ( empty( $attr['tweet'] ) && ! empty( $attr[0] ) ) {
 			$attr['tweet'] = $attr[0];
@@ -95,12 +98,12 @@ class AMP_Twitter_Embed_Handler extends AMP_Base_Embed_Handler {
 
 		return AMP_HTML_Utils::build_tag(
 			$this->amp_tag,
-			array(
+			[
 				'data-tweetid' => $id,
 				'layout'       => 'responsive',
 				'width'        => $this->args['width'],
 				'height'       => $this->args['height'],
-			)
+			]
 		);
 	}
 
@@ -123,7 +126,7 @@ class AMP_Twitter_Embed_Handler extends AMP_Base_Embed_Handler {
 			return '';
 		}
 
-		return $this->shortcode( array( 'tweet' => $id ) );
+		return $this->shortcode( [ 'tweet' => $id ] );
 	}
 
 	/**
@@ -139,10 +142,10 @@ class AMP_Twitter_Embed_Handler extends AMP_Base_Embed_Handler {
 			return '';
 		}
 
-		$attributes = array(
+		$attributes = [
 			'data-timeline-source-type' => 'profile',
 			'data-timeline-screen-name' => $matches['username'],
-		);
+		];
 
 		if ( isset( $matches['type'] ) ) {
 			switch ( $matches['type'] ) {
@@ -226,12 +229,24 @@ class AMP_Twitter_Embed_Handler extends AMP_Base_Embed_Handler {
 			return;
 		}
 
-		$new_node = AMP_DOM_Utils::create_node( $dom, $this->amp_tag, array(
+		$attributes = [
 			'width'        => $this->DEFAULT_WIDTH,
 			'height'       => $this->DEFAULT_HEIGHT,
 			'layout'       => 'responsive',
 			'data-tweetid' => $tweet_id,
-		) );
+		];
+
+		if ( $node->hasAttributes() ) {
+			foreach ( $node->attributes as $attr ) {
+				$attributes[ $attr->nodeName ] = $attr->nodeValue;
+			}
+		}
+
+		$new_node = AMP_DOM_Utils::create_node(
+			$dom,
+			$this->amp_tag,
+			$attributes
+		);
 
 		$this->sanitize_embed_script( $node );
 

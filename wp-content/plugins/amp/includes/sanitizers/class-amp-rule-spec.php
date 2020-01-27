@@ -34,6 +34,8 @@ abstract class AMP_Rule_Spec {
 	const DISALLOWED_ANCESTOR = 'disallowed_ancestor';
 	const MANDATORY_ANCESTOR  = 'mandatory_ancestor';
 	const MANDATORY_PARENT    = 'mandatory_parent';
+	const DESCENDANT_TAG_LIST = 'descendant_tag_list';
+	const CHILD_TAGS          = 'child_tags';
 
 	/**
 	 * HTML Element Attribute rule names
@@ -53,12 +55,21 @@ abstract class AMP_Rule_Spec {
 	const VALUE_URL               = 'value_url';
 
 	/**
+	 * Attribute name for AMP dev mode.
+	 *
+	 * @since 1.2.2
+	 * @link https://github.com/ampproject/amphtml/issues/20974
+	 * @var string
+	 */
+	const DEV_MODE_ATTRIBUTE = 'data-ampdevmode';
+
+	/**
 	 * Supported layout values.
 	 *
 	 * @since 1.0
 	 * @var array
 	 */
-	public static $layout_enum = array(
+	public static $layout_enum = [
 		1 => 'nodisplay',
 		2 => 'fixed',
 		3 => 'fixed-height',
@@ -68,7 +79,7 @@ abstract class AMP_Rule_Spec {
 		7 => 'flex-item',
 		8 => 'fluid',
 		9 => 'intrinsic',
-	);
+	];
 
 	/**
 	 * List of boolean attributes.
@@ -76,7 +87,7 @@ abstract class AMP_Rule_Spec {
 	 * @since 0.7
 	 * @var array
 	 */
-	public static $boolean_attributes = array(
+	public static $boolean_attributes = [
 		'allowfullscreen',
 		'async',
 		'autofocus',
@@ -121,19 +132,19 @@ abstract class AMP_Rule_Spec {
 		'truespeed',
 		'typemustmatch',
 		'visible',
-	);
+	];
 
 	/**
 	 * Additional allowed tags.
 	 *
 	 * @var array
 	 */
-	public static $additional_allowed_tags = array(
+	public static $additional_allowed_tags = [
 
 		// An experimental tag with no protoascii.
-		'amp-share-tracking' => array(
-			'attr_spec_list' => array(),
-			'tag_spec'       => array(),
-		),
-	);
+		'amp-share-tracking' => [
+			'attr_spec_list' => [],
+			'tag_spec'       => [],
+		],
+	];
 }
