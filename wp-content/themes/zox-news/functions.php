@@ -2666,6 +2666,7 @@ function mvp_editor_styles() {
 }
 add_action( 'enqueue_block_editor_assets', 'mvp_editor_styles' );
 
+
 /////////////////////////////////////
 // Bundled Plugins
 /////////////////////////////////////

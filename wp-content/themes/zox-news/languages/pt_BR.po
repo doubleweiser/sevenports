@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Zox News 3.1.0\n"
 "POT-Creation-Date: 2020-01-20 19:41+0000\n"
-"PO-Revision-Date: 2020-01-20 19:51+0000\n"
+"PO-Revision-Date: 2020-01-28 19:56+0000\n"
 "Last-Translator: admin <doubleweiser@gmail.com>\n"
 "Language-Team: Português do Brasil\n"
 "Language: pt_BR\n"
@@ -170,7 +170,7 @@ msgstr ""
 #: amp-single.php:183 page.php:50 page-fullwidth.php:85 alp/alp-single.php:259
 #: parts/post-single.php:483
 msgid "% Comments"
-msgstr ""
+msgstr "% Comentarios"
 
 #: functions.php:41
 msgctxt "Google font: on or off"
