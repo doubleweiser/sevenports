@@ -115,7 +115,7 @@
 									<li><a href="#mvp-feat-tab-col2"><span class="mvp-feat1-list-but"><?php esc_html_e( 'Videos', 'zox-news' ); ?></span></a></li>
 								<?php endif; wp_reset_query(); ?>
 								<?php query_posts(array( 'tax_query' => array( array( 'taxonomy' => 'post_format', 'field' => 'slug', 'terms' => 'post-format-gallery' )) )); if (have_posts()) : ?>
-									<li><a href="#mvp-feat-tab-col3"><span class="mvp-feat1-list-but"><?php esc_html_e( 'Galleries', 'zox-news' ); ?></span></a></li>
+									<li><a href="#mvp-feat-tab-col3"><span class="mvp-feat1-list-but"><?php echo( 'Galerias' ); ?></span></a></li>
 								<?php endif; wp_reset_query(); ?>
 							</ul>
 						</div><!--mvp-feat1-list-head-wrap-->
