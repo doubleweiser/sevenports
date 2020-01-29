@@ -7257,6 +7257,8 @@ span.mvp-nav-search-but {
 	padding: 0.15rem 0;
 }
 
+
+
 .mvp-fixed1 {
     top: -120px !important; 
 }
@@ -7267,6 +7269,10 @@ span.mvp-nav-search-but {
 
 .mvp-nav-menu ul li:hover a {
     padding: 25px 12px 20px;
+}
+
+span.mvp-feat1-pop-head {
+    background: #014300;
 }
 
 
