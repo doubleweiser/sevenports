@@ -1,41 +1,35 @@
 [
     {
-        "name": "dealerdirect/phpcodesniffer-composer-installer",
-        "version": "v0.4.4",
-        "version_normalized": "0.4.4.0",
+        "name": "fasterimage/fasterimage",
+        "version": "v1.5.0",
+        "version_normalized": "1.5.0.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/Dealerdirect/phpcodesniffer-composer-installer.git",
-            "reference": "2e41850d5f7797cbb1af7b030d245b3b24e63a08"
+            "url": "https://github.com/willwashburn/fasterimage.git",
+            "reference": "42d125a15dc124520aff2157bbed9a4b2d4f310a"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/Dealerdirect/phpcodesniffer-composer-installer/zipball/2e41850d5f7797cbb1af7b030d245b3b24e63a08",
-            "reference": "2e41850d5f7797cbb1af7b030d245b3b24e63a08",
+            "url": "https://api.github.com/repos/willwashburn/fasterimage/zipball/42d125a15dc124520aff2157bbed9a4b2d4f310a",
+            "reference": "42d125a15dc124520aff2157bbed9a4b2d4f310a",
             "shasum": ""
         },
         "require": {
-            "composer-plugin-api": "^1.0",
-            "php": "^5.3|^7",
-            "squizlabs/php_codesniffer": "*"
+            "php": ">=5.4.0",
+            "willwashburn/stream": ">=1.0"
         },
         "require-dev": {
-            "composer/composer": "*",
-            "wimg/php-compatibility": "^8.0"
+            "php-coveralls/php-coveralls": "^2.1",
+            "php-mock/php-mock-phpunit": "^2.3",
+            "phpunit/phpunit": "~6.0"
         },
-        "suggest": {
-            "dealerdirect/qa-tools": "All the PHP QA tools you'll need"
-        },
-        "time": "2017-12-06T16:27:17+00:00",
-        "type": "composer-plugin",
-        "extra": {
-            "class": "Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\Plugin"
-        },
-        "installation-source": "source",
+        "time": "2019-05-25T14:33:33+00:00",
+        "type": "library",
+        "installation-source": "dist",
         "autoload": {
-            "psr-4": {
-                "Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\": "src/"
-            }
+            "classmap": [
+                "src"
+            ]
         },
         "notification-url": "https://packagist.org/downloads/",
         "license": [
@@ -43,61 +37,61 @@
         ],
         "authors": [
             {
-                "name": "Franck Nijhof",
-                "email": "f.nijhof@dealerdirect.nl",
-                "homepage": "http://workingatdealerdirect.eu",
-                "role": "Developer"
+                "name": "Will Washburn",
+                "email": "will@tailwindapp.com"
+            },
+            {
+                "name": "Weston Ruter"
             }
         ],
-        "description": "PHP_CodeSniffer Standards Composer Installer Plugin",
-        "homepage": "http://workingatdealerdirect.eu",
+        "description": "FasterImage finds the size or type of a set of images given their uris by fetching as little as needed, in parallel. Originally ported by Tom Moor.",
+        "homepage": "https://github.com/willwashburn/fasterimage",
         "keywords": [
-            "PHPCodeSniffer",
-            "PHP_CodeSniffer",
-            "code quality",
-            "codesniffer",
-            "composer",
-            "installer",
-            "phpcs",
-            "plugin",
-            "qa",
-            "quality",
-            "standard",
-            "standards",
-            "style guide",
-            "stylecheck",
-            "tests"
+            "fast image",
+            "faster image",
+            "fasterimage",
+            "fastimage",
+            "getimagesize",
+            "image size",
+            "parallel"
         ]
     },
     {
         "name": "sabberworm/php-css-parser",
-        "version": "8.1.1",
-        "version_normalized": "8.1.1.0",
+        "version": "8.3.0",
+        "version_normalized": "8.3.0.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/xwp/PHP-CSS-Parser.git",
-            "reference": "22311fa3d67217c5fcd0b839670be39a768eda7b"
+            "url": "https://github.com/sabberworm/PHP-CSS-Parser.git",
+            "reference": "91bcc3e3fdb7386c9a2e0e0aa09ca75cc43f121f"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/xwp/PHP-CSS-Parser/zipball/22311fa3d67217c5fcd0b839670be39a768eda7b",
-            "reference": "22311fa3d67217c5fcd0b839670be39a768eda7b",
+            "url": "https://api.github.com/repos/sabberworm/PHP-CSS-Parser/zipball/91bcc3e3fdb7386c9a2e0e0aa09ca75cc43f121f",
+            "reference": "91bcc3e3fdb7386c9a2e0e0aa09ca75cc43f121f",
             "shasum": ""
         },
         "require": {
             "php": ">=5.3.2"
         },
         "require-dev": {
+            "codacy/coverage": "^1.4",
             "phpunit/phpunit": "~4.8"
         },
-        "time": "2018-11-25T04:50:29+00:00",
+        "time": "2019-02-22T07:42:52+00:00",
         "type": "library",
-        "installation-source": "source",
+        "extra": {
+            "patches_applied": {
+                "PHP-CSS-Parser: Fix parsing CSS selectors which contain commas <https://github.com/sabberworm/PHP-CSS-Parser/pull/138>": "https://github.com/sabberworm/PHP-CSS-Parser/commit/fa139f65c5b098ae652c970b25e6eb03fc495eb4.diff"
+            }
+        },
+        "installation-source": "dist",
         "autoload": {
             "psr-0": {
                 "Sabberworm\\CSS": "lib/"
             }
         },
+        "notification-url": "https://packagist.org/downloads/",
         "license": [
             "MIT"
         ],
@@ -112,160 +106,55 @@
             "css",
             "parser",
             "stylesheet"
-        ],
-        "support": {
-            "source": "https://github.com/xwp/PHP-CSS-Parser/tree/8.1.1"
-        }
-    },
-    {
-        "name": "squizlabs/php_codesniffer",
-        "version": "3.3.2",
-        "version_normalized": "3.3.2.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-            "reference": "6ad28354c04b364c3c71a34e4a18b629cc3b231e"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/6ad28354c04b364c3c71a34e4a18b629cc3b231e",
-            "reference": "6ad28354c04b364c3c71a34e4a18b629cc3b231e",
-            "shasum": ""
-        },
-        "require": {
-            "ext-simplexml": "*",
-            "ext-tokenizer": "*",
-            "ext-xmlwriter": "*",
-            "php": ">=5.4.0"
-        },
-        "require-dev": {
-            "phpunit/phpunit": "^4.0 || ^5.0 || ^6.0 || ^7.0"
-        },
-        "time": "2018-09-23T23:08:17+00:00",
-        "bin": [
-            "bin/phpcs",
-            "bin/phpcbf"
-        ],
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "3.x-dev"
-            }
-        },
-        "installation-source": "source",
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "BSD-3-Clause"
-        ],
-        "authors": [
-            {
-                "name": "Greg Sherwood",
-                "role": "lead"
-            }
-        ],
-        "description": "PHP_CodeSniffer tokenizes PHP, JavaScript and CSS files and detects violations of a defined set of coding standards.",
-        "homepage": "http://www.squizlabs.com/php-codesniffer",
-        "keywords": [
-            "phpcs",
-            "standards"
         ]
     },
     {
-        "name": "wimg/php-compatibility",
-        "version": "8.2.0",
-        "version_normalized": "8.2.0.0",
+        "name": "willwashburn/stream",
+        "version": "v1.0.0",
+        "version_normalized": "1.0.0.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/PHPCompatibility/PHPCompatibility.git",
-            "reference": "eaf613c1a8265bcfd7b0ab690783f2aef519f78a"
+            "url": "https://github.com/willwashburn/stream.git",
+            "reference": "345b3062493e3899d987dbdd1fec1c13ee28c903"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/PHPCompatibility/PHPCompatibility/zipball/eaf613c1a8265bcfd7b0ab690783f2aef519f78a",
-            "reference": "eaf613c1a8265bcfd7b0ab690783f2aef519f78a",
+            "url": "https://api.github.com/repos/willwashburn/stream/zipball/345b3062493e3899d987dbdd1fec1c13ee28c903",
+            "reference": "345b3062493e3899d987dbdd1fec1c13ee28c903",
             "shasum": ""
         },
         "require": {
-            "php": ">=5.3",
-            "squizlabs/php_codesniffer": "^2.3 || ^3.0.2"
-        },
-        "conflict": {
-            "squizlabs/php_codesniffer": "2.6.2"
+            "php": ">=5.4.0"
         },
         "require-dev": {
-            "phpunit/phpunit": "~4.5 || ^5.0 || ^6.0 || ^7.0"
+            "mockery/mockery": "~0.9",
+            "phpunit/phpunit": "~4.0"
         },
-        "suggest": {
-            "dealerdirect/phpcodesniffer-composer-installer": "^0.4.3 || This Composer plugin will sort out the PHPCS 'installed_paths' automatically.",
-            "roave/security-advisories": "dev-master || Helps prevent installing dependencies with known security issues."
-        },
-        "time": "2018-07-17T13:42:26+00:00",
-        "type": "phpcodesniffer-standard",
+        "time": "2016-03-15T10:54:35+00:00",
+        "type": "library",
         "installation-source": "dist",
         "autoload": {
             "psr-4": {
-                "PHPCompatibility\\": "PHPCompatibility/"
+                "WillWashburn\\": "src/"
             }
         },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "LGPL-3.0-or-later"
-        ],
-        "authors": [
-            {
-                "name": "Wim Godden",
-                "role": "lead"
-            }
-        ],
-        "description": "A set of sniffs for PHP_CodeSniffer that checks for PHP version compatibility.",
-        "homepage": "http://techblog.wimgodden.be/tag/codesniffer/",
-        "keywords": [
-            "compatibility",
-            "phpcs",
-            "standards"
-        ],
-        "abandoned": "phpcompatibility/php-compatibility"
-    },
-    {
-        "name": "wp-coding-standards/wpcs",
-        "version": "0.14.1",
-        "version_normalized": "0.14.1.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards.git",
-            "reference": "cf6b310caad735816caef7573295f8a534374706"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/WordPress-Coding-Standards/WordPress-Coding-Standards/zipball/cf6b310caad735816caef7573295f8a534374706",
-            "reference": "cf6b310caad735816caef7573295f8a534374706",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3",
-            "squizlabs/php_codesniffer": "^2.9.0 || ^3.0.2"
-        },
-        "suggest": {
-            "dealerdirect/phpcodesniffer-composer-installer": "^0.4.3"
-        },
-        "time": "2018-02-16T01:57:48+00:00",
-        "type": "phpcodesniffer-standard",
-        "installation-source": "source",
         "notification-url": "https://packagist.org/downloads/",
         "license": [
             "MIT"
         ],
         "authors": [
             {
-                "name": "Contributors",
-                "homepage": "https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/graphs/contributors"
+                "name": "Will Washburn",
+                "email": "will.washburn@gmail.com"
             }
         ],
-        "description": "PHP_CodeSniffer rules (sniffs) to enforce WordPress coding conventions",
+        "description": "model a sequence of data elements made available over time ",
+        "homepage": "https://github.com/willwashburn/stream",
         "keywords": [
-            "phpcs",
-            "standards",
-            "wordpress"
+            "peek",
+            "read",
+            "stream",
+            "streamable"
         ]
     }
 ]

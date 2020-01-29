@@ -25,6 +25,80 @@
 <meta property="og:description" content="<?php bloginfo('description'); ?>" />
 <?php } ?>
 <?php wp_head(); ?>
+		<!-- Adicionando Javascript CEP -->
+		 <script type="text/javascript" >
+
+		 function limpa_formulário_cep() {
+				//Limpa valores do formulário de cep.
+				document.getElementById('cep').value=("");
+				document.getElementById('endere_o').value=("");
+				document.getElementById('bairro').value=("");
+				document.getElementById('cidade').value=("");
+				document.getElementById('uf').value=("");
+				}
+		// insere o conteudo no formulario
+		function meu_callback(conteudo) {
+			console.log(conteudo);
+			if (!("erro" in conteudo)) {
+				//Atualiza os campos com os valores.
+				document.getElementById('cep_731').value=(conteudo.cep);
+				document.getElementById('endere_o_731').value=(conteudo.logradouro);
+				document.getElementById('bairro_731').value=(conteudo.bairro);
+				document.getElementById('cidade_731').value=(conteudo.localidade);
+				document.getElementById('uf_731').value=(conteudo.uf);
+				} //end if.
+			else {
+				//CEP não Encontrado.
+				limpa_formulário_cep();
+				alert("CEP não encontrado.");
+			}
+		}
+
+		function pesquisacep(valor) {
+
+			//Nova variável "cep" somente com dígitos.
+			var cep = valor.replace(/\D/g, '');
+
+			//Verifica se campo cep possui valor informado.
+			if (cep != "") {
+
+				//Expressão regular para validar o CEP.
+				var validacep = /^[0-9]{8}$/;
+
+				//Valida o formato do CEP.
+				if(validacep.test(cep)) {
+
+					//Preenche os campos com "..." enquanto consulta webservice.
+					document.getElementById('cep_4001').value="...";
+					document.getElementById('rua_4001').value="...";
+					document.getElementById('bairro_4001').value="...";
+					document.getElementById('cidade_4001').value="...";
+					document.getElementById('uf_4001').value="...";
+
+		   			//Cria um elemento javascript.
+					var script = document.createElement('script');
+
+					//Sincroniza com o callback.
+					script.src = '//viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback';
+
+					//Insere script no documento e carrega o conteúdo.
+					document.body.appendChild(script);
+
+				} //end if.
+				else {
+					//cep é inválido.
+					limpa_formulário_cep();
+					alert("Formato de CEP inválido.");
+				}
+			} //end if.
+			else {
+				//cep sem valor, limpa formulário.
+				limpa_formulário_cep();
+			}
+		};
+
+		</script>
+		<!-- Adicionando Javascript temina cep-->
 </head>
 <body <?php body_class(''); ?>>
 	<?php get_template_part('fly-menu'); ?>
@@ -73,6 +147,8 @@
 																<span></span>
 															</div><!--mvp-fly-but-wrap-->
 														</div><!--mvp-nav-small-left-->
+													
+
 														<div class="mvp-nav-small-left-in">
 															<div class="mvp-nav-small-mid left">
 																<div class="mvp-nav-small-logo left relative">
@@ -113,74 +189,7 @@
 					</nav><!--mvp-main-nav-wrap-->
 				<?php } else { ?>
 					<nav id="mvp-main-nav-wrap" class="left relative">
-						<div id="mvp-main-nav-top" class="left relative">
-							<div class="mvp-main-box">
-								<div id="mvp-nav-top-wrap" class="left relative">
-									<div class="mvp-nav-top-right-out left relative">
-										<div class="mvp-nav-top-right-in">
-											<div class="mvp-nav-top-cont left relative">
-												<div class="mvp-nav-top-left-out relative">
-													<div class="mvp-nav-top-left">
-														<div class="mvp-nav-soc-wrap">
-															<?php if(get_option('mvp_facebook')) { ?>
-																<a href="<?php echo esc_html(get_option('mvp_facebook')); ?>" target="_blank"><span class="mvp-nav-soc-but fa fa-facebook fa-2"></span></a>
-															<?php } ?>
-															<?php if(get_option('mvp_twitter')) { ?>
-																<a href="<?php echo esc_html(get_option('mvp_twitter')); ?>" target="_blank"><span class="mvp-nav-soc-but fa fa-twitter fa-2"></span></a>
-															<?php } ?>
-															<?php if(get_option('mvp_instagram')) { ?>
-																<a href="<?php echo esc_html(get_option('mvp_instagram')); ?>" target="_blank"><span class="mvp-nav-soc-but fa fa-instagram fa-2"></span></a>
-															<?php } ?>
-															<?php if(get_option('mvp_youtube')) { ?>
-																<a href="<?php echo esc_html(get_option('mvp_youtube')); ?>" target="_blank"><span class="mvp-nav-soc-but fa fa-youtube-play fa-2"></span></a>
-															<?php } ?>
-														</div><!--mvp-nav-soc-wrap-->
-														<div class="mvp-fly-but-wrap mvp-fly-but-click left relative">
-															<span></span>
-															<span></span>
-															<span></span>
-															<span></span>
-														</div><!--mvp-fly-but-wrap-->
-													</div><!--mvp-nav-top-left-->
-													<div class="mvp-nav-top-left-in">
-														<div class="mvp-nav-top-mid left relative" itemscope itemtype="http://schema.org/Organization">
-															<?php if(get_option('mvp_logo')) { ?>
-																<a class="mvp-nav-logo-reg" itemprop="url" href="<?php echo esc_url( home_url( '/' ) ); ?>"><img itemprop="logo" src="<?php echo esc_url(get_option('mvp_logo')); ?>" alt="<?php bloginfo( 'name' ); ?>" data-rjs="2" /></a>
-															<?php } else { ?>
-																<a class="mvp-nav-logo-reg" itemprop="url" href="<?php echo esc_url( home_url( '/' ) ); ?>"><img itemprop="logo" src="<?php echo get_template_directory_uri(); ?>/images/logos/logo-large.png" alt="<?php bloginfo( 'name' ); ?>" data-rjs="2" /></a>
-															<?php } ?>
-															<?php if(get_option('mvp_logo_nav')) { ?>
-																<a class="mvp-nav-logo-small" href="<?php echo esc_url( home_url( '/' ) ); ?>"><img src="<?php echo esc_url(get_option('mvp_logo_nav')); ?>" alt="<?php bloginfo( 'name' ); ?>" data-rjs="2" /></a>
-															<?php } else { ?>
-																<a class="mvp-nav-logo-small" href="<?php echo esc_url( home_url( '/' ) ); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/logos/logo-nav.png" alt="<?php bloginfo( 'name' ); ?>" data-rjs="2" /></a>
-															<?php } ?>
-															<?php if ( is_home() || is_front_page() ) { ?>
-																<h1 class="mvp-logo-title"><?php bloginfo( 'name' ); ?></h1>
-															<?php } else { ?>
-																<h2 class="mvp-logo-title"><?php bloginfo( 'name' ); ?></h2>
-															<?php } ?>
-															<?php if (is_single()) { ?>
-																<div class="mvp-drop-nav-title left">
-																	<h4><?php the_title(); ?></h4>
-																</div><!--mvp-drop-nav-title-->
-															<?php } ?>
-														</div><!--mvp-nav-top-mid-->
-													</div><!--mvp-nav-top-left-in-->
-												</div><!--mvp-nav-top-left-out-->
-											</div><!--mvp-nav-top-cont-->
-										</div><!--mvp-nav-top-right-in-->
-										<div class="mvp-nav-top-right">
-											<?php if ( class_exists( 'WooCommerce' ) ) { ?>
-												<div class="mvp-woo-cart-wrap">
-													<a class="mvp-woo-cart" href="<?php echo wc_get_cart_url(); ?>" title="<?php esc_html_e( 'View your shopping cart', 'zox-news' ); ?>"><span class="mvp-woo-cart-num"><?php echo WC()->cart->get_cart_contents_count(); ?></span></a><span class="mvp-woo-cart-icon fa fa-shopping-cart" aria-hidden="true"></span>
-												</div><!--mvp-woo-cart-wrap-->
-											<?php } ?>
-											<span class="mvp-nav-search-but fa fa-search fa-2 mvp-search-click"></span>
-										</div><!--mvp-nav-top-right-->
-									</div><!--mvp-nav-top-right-out-->
-								</div><!--mvp-nav-top-wrap-->
-							</div><!--mvp-main-box-->
-						</div><!--mvp-main-nav-top-->
+						
 						<div id="mvp-main-nav-bot" class="left relative">
 							<div id="mvp-main-nav-bot-cont" class="left">
 								<div class="mvp-main-box">
@@ -189,23 +198,37 @@
 											<div class="mvp-nav-bot-right-in">
 												<div class="mvp-nav-bot-cont left">
 													<div class="mvp-nav-bot-left-out">
-														<div class="mvp-nav-bot-left left relative">
-															<div class="mvp-fly-but-wrap mvp-fly-but-click left relative">
-																<span></span>
-																<span></span>
-																<span></span>
-																<span></span>
-															</div><!--mvp-fly-but-wrap-->
-														</div><!--mvp-nav-bot-left-->
-														<div class="mvp-nav-bot-left-in">
-															<div class="mvp-nav-menu left">
+														<div class="">
+															<?php if(get_option('mvp_logo')) { ?>
+																<a class="mvp-nav-logo-reg left " itemprop="url" href="<?php echo esc_url( home_url( '/' ) ); ?>"><img itemprop="logo" src="<?php echo esc_url(get_option('mvp_logo')); ?>" alt="<?php bloginfo( 'name' ); ?>" data-rjs="2" /></a>
+															<?php } else { ?>
+																<a class="mvp-nav-logo-reg left " itemprop="url" href="<?php echo esc_url( home_url( '/' ) ); ?>"><img itemprop="logo" src="<?php echo get_template_directory_uri(); ?>/images/logos/logo-large.png" alt="<?php bloginfo( 'name' ); ?>" data-rjs="2" /></a>
+															<?php } ?>
+															<?php if(get_option('mvp_logo_nav')) { ?>
+																<a class="mvp-nav-logo-small left " href="<?php echo esc_url( home_url( '/' ) ); ?>"><img src="<?php echo esc_url(get_option('mvp_logo_nav')); ?>" alt="<?php bloginfo( 'name' ); ?>" data-rjs="2" /></a>
+															<?php } else { ?>
+																<a class="mvp-nav-logo-small left " href="<?php echo esc_url( home_url( '/' ) ); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/logos/logo-nav.png" alt="<?php bloginfo( 'name' ); ?>" data-rjs="2" /></a>
+															<?php } ?>
+															<?php if ( is_home() || is_front_page() ) { ?>
+																<h1 class="mvp-logo-title"><?php bloginfo( 'name' ); ?></h1>
+															<?php } else { ?>
+																<h2 class="mvp-logo-title"><?php bloginfo( 'name' ); ?></h2>
+															<?php } ?>
+															
+															<div class="mvp-nav-menu desktop left">
 																<?php wp_nav_menu(array('theme_location' => 'main-menu')); ?>
 															</div><!--mvp-nav-menu-->
 														</div><!--mvp-nav-bot-left-in-->
 													</div><!--mvp-nav-bot-left-out-->
 												</div><!--mvp-nav-bot-cont-->
 											</div><!--mvp-nav-bot-right-in-->
-											<div class="mvp-nav-bot-right left relative">
+											<div class="mvp-nav-bot-left left relative">
+															<div class="mvp-fly-but-wrap mvp-fly-but-click left relative">
+																<span></span>
+																<span></span>
+																<span></span>
+																<span></span>
+															</div><!--mvp-fly-but-wrap-->
 												<span class="mvp-nav-search-but fa fa-search fa-2 mvp-search-click"></span>
 											</div><!--mvp-nav-bot-right-->
 										</div><!--mvp-nav-bot-right-out-->
@@ -217,3 +240,14 @@
 				<?php } ?>
 			</header><!--mvp-main-head-wrap-->
 			<div id="mvp-main-body-wrap" class="left relative">
+				<div class="topoNews">
+					<div class="mvp-main-box relative">
+						<div class="imgparceiro">
+							<?php masterslider(1); ?> 
+						</div>
+						<div class="newsline">
+							<?php if(function_exists('ditty_news_ticker')){ditty_news_ticker(747);} ?>
+						</div>
+					
+					</div>
+				</div>

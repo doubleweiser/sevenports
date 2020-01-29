@@ -7144,3 +7144,152 @@ h1.mvp-author-top-head,
 .mvp-feat5-side-list .mvp-feat1-list-img:after {
 	font-family: 'Oswald', sans-serif;
 	}
+
+
+/* ESTILIZAÇÃO JUNIOR*/
+.topoNews{
+	float: left;
+	width: 100%;
+	background:#014300;
+	padding: 0.6rem 0 0.4rem;
+	margin-bottom: 1rem;
+}
+
+.newsline{
+	float: left;
+	width: 70%;
+	margin-top: 2rem;
+}
+
+.newsline a{
+	color: #fff;
+}
+
+.newsline a:visited{
+	color: #edc300 !important;
+}
+
+.mtphr-dnt-inline-title {
+    color: #39e7b6;
+}
+
+.imgparceiro{
+	float: right;
+	width: 26.7%;
+}
+
+.imgparceiro img{
+	float: left;
+	width: 100%;
+}
+
+#mvp-foot-wrap {
+    background: #014300f7;
+    width: 100%;
+}
+
+ul.mvp-foot-soc-list li a {
+    background: #fff;
+    color: #004200 !important;
+  
+}
+
+ul.mvp-foot-soc-list li a:hover {
+    background: #fff;
+    color: #ffffff !important;
+  
+}
+
+#mvp-foot-menu ul li a {
+    color: #fff;
+}
+
+#mvp-foot-bot {
+    background: #002b00;
+}
+
+#mvp-foot-copy p{
+	color: #fff;
+}
+
+.mvp-nav-menu {
+    width: 70%;
+}
+
+.mvp-nav-menu ul {
+    float: left;
+    text-align: right;
+    width: 100%;
+}
+
+#mvp-main-nav-bot{
+	height: 66px;
+}
+
+.mvp-nav-menu ul li.mvp-mega-dropdown .mvp-mega-dropdown {
+	top: 66px;
+}
+
+#mvp-main-nav-bot{
+	background: #fff;
+	margin-top:0px !important;
+}
+
+#mvp-nav-bot-wrap, .mvp-nav-bot-cont {
+    width: 95%;
+}
+
+.desktop{
+	display: block !important;
+}
+.mobile{
+	display: none !important;
+}
+
+span.mvp-nav-search-but {
+    margin-right: -1.4rem;
+    margin-top: -0.9rem;
+}
+
+#mvp-main-nav-bot-cont{
+	height: auto;
+	background: #F1FBA5 !important;
+	padding: 0.15rem 0;
+}
+
+.mvp-fixed1 {
+    top: -120px !important; 
+}
+
+.mvp-nav-menu ul li a {
+    padding: 25px 12px;
+}
+
+.mvp-nav-menu ul li:hover a {
+    padding: 25px 12px 20px;
+}
+
+
+@media (max-width: 900px) {
+	.desktop{
+		display: none !important;
+	}
+	.mobile{
+		display: block !important;
+	}
+}
+
+@media (max-width: 600px) {
+	.imgparceiro {
+		float: right;
+		width: 100%;
+		text-align: center;
+		margin: 0.8rem 0;
+	}
+	.newsline {
+		float: left;
+		width: 100%;
+		margin-top: 0.5rem;
+	}
+}
+
