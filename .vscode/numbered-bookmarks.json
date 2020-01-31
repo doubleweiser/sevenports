@@ -29,6 +29,37 @@
 				-1,
 				-1
 			]
+		},
+		{
+			"fsPath": "$ROOTPATH$/wp-content/themes/zox-news/widgets/widget-tabber.php",
+			"bookmarks": [
+				-1,
+				-1,
+				-1,
+				-1,
+				-1,
+				63,
+				-1,
+				-1,
+				-1,
+				-1,
+				83
+			]
+		},
+		{
+			"fsPath": "$ROOTPATH$/wp-content/themes/zox-news/featured.php",
+			"bookmarks": [
+				-1,
+				-1,
+				142,
+				460,
+				-1,
+				-1,
+				-1,
+				-1,
+				-1,
+				-1
+			]
 		}
 	]
 }

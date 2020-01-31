@@ -65,7 +65,9 @@ class mvp_tabber_widget extends WP_Widget {
 							<?php query_posts(array( 'posts_per_page' => $number, 'ignore_sticky_posts'=> 1 )); if (have_posts()) : while (have_posts()) : the_post(); ?>
 								<a href="<?php the_permalink(); ?>" rel="bookmark">
 								<div class="mvp-feat1-list-cont left relative">
-									<?php if (  (function_exists('has_post_thumbnail')) && (has_post_thumbnail())  ) { ?>
+									<?php 
+										$category = get_the_category(); 
+										if (  (function_exists('has_post_thumbnail')) && (has_post_thumbnail())  ) { ?>
 										<div class="mvp-feat1-list-out relative">
 											<div class="mvp-feat1-list-img left relative">
 												<?php the_post_thumbnail('mvp-small-thumb'); ?>
@@ -73,16 +75,16 @@ class mvp_tabber_widget extends WP_Widget {
 											<div class="mvp-feat1-list-in">
 												<div class="mvp-feat1-list-text">
 													<div class="mvp-cat-date-wrap left relative">
-														<span class="mvp-cd-cat left relative"><?php $category = get_the_category(); echo esc_html( $category[0]->cat_name ); ?></span><span class="mvp-cd-date left relative"><?php printf( esc_html__( '%s ago', 'zox-news' ), human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ) ); ?></span>
+														<span class="mvp-cd-cat left relative"><?php echo esc_html( $category[0]->cat_name ); ?></span><span class="mvp-cd-date left relative"><?php printf( esc_html__( '%s ago', 'zox-news' ), human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ) ); ?></span>
 													</div><!--mvp-cat-date-wrap-->
 													<h2><?php the_title(); ?></h2>
 												</div><!--mvp-feat1-list-text-->
 											</div><!--mvp-feat1-list-in-->
 										</div><!--mvp-feat1-list-out-->
-									<?php } else { ?>
+									<?php } else if ($category[0]->slug != "sem-categoria") { ?>
 										<div class="mvp-feat1-list-text">
 											<div class="mvp-cat-date-wrap left relative">
-												<span class="mvp-cd-cat left relative"><?php $category = get_the_category(); echo esc_html( $category[0]->cat_name ); ?></span><span class="mvp-cd-date left relative"><?php printf( esc_html__( '%s ago', 'zox-news' ), human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ) ); ?></span>
+												<span class="mvp-cd-cat left relative"><?php echo esc_html( $category[0]->cat_name ); ?></span><span class="mvp-cd-date left relative"><?php printf( esc_html__( '%s ago', 'zox-news' ), human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ) ); ?></span>
 											</div><!--mvp-cat-date-wrap-->
 											<h2><?php the_title(); ?></h2>
 										</div><!--mvp-feat1-list-text-->
